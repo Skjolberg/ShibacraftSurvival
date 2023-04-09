@@ -1,0 +1,22 @@
+name: '${name}'
+main: '${group}.ShibacraftSurvival'
+description: '${description}'
+version: '${version}'
+author: '${author}'
+api-version: '${minecraftVersion}'
+
+softdepend: [PlaceholderAPI, LuckPerms]
+
+permissions:
+  shibacraft.admin:
+    description: Allows all admin permissions
+    default: op
+    children:
+      shibacraft.presidente: true
+      shibacraft.ciudadano: true
+  shibacraft.presidente:
+    description: President
+    default: false
+  shibacraft.ciudadano:
+    description: Citizen
+    default: true

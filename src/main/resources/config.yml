@@ -1,0 +1,5 @@
+# Number of citizens allowed per city, this value is not recommended to be changed if there are already citizens in cities.
+citizens: 20
+
+# Invitation expire (seconds)
+expire: 30

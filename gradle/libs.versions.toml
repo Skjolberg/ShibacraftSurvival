@@ -1,0 +1,25 @@
+[versions]
+
+spigot = "1.19.2-R0.1-SNAPSHOT"
+commandFlow = "0.5.2"
+libby = "1.1.5"
+lombok = "1.18.24"
+shadow = "7.1.2"
+shibacraft = "0.1.0"
+configurate = "4.1.2"
+lickPerms = "5.4"
+
+[libraries]
+
+spigot = { group = "org.spigotmc", name = "spigot-api", version.ref = "spigot" }
+commandFlow = { group = "me.fixeddev", name = "commandflow-bukkit", version.ref = "commandFlow" }
+libby = { group = "net.byteflux", name = "libby-bukkit", version.ref = "libby" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+shibacraft = { group = "com.github.Skjolberg", name = "ShibacraftLibrary", version.ref = "shibacraft" }
+configurateCore = { group = "org.spongepowered", name = "configurate-core", version.ref = "configurate" }
+configurateYaml = { group = "org.spongepowered", name = "configurate-yaml", version.ref = "configurate" }
+luckPerms = { group = "net.luckperms", name = "api", version.ref = "lickPerms" }
+
+[plugins]
+
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
