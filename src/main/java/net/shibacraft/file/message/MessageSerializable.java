@@ -39,7 +39,8 @@ public class MessageSerializable {
     private String citizenListFooter = "&5&m-------------------";
     private String listEmpty = "{prefix} &cNo hay ciudadanos en tu ciudad.";
     private String maxCitizens = "{prefix} &cHas añadido el número máximo de ciudadanos.";
-    private String alreadyHasCity = "{prefix} &cEse ciudadano ya pertenece a una ciudad.";
+    private String alreadyHasCity = "{prefix} &cYa tienes una ciudad!";
+    private String citizenAlreadyHasCity = "{prefix} &cEse ciudadano ya pertenece a una ciudad.";
     private String citizenNoFromYourCity = "{prefix} &cEste usuario no es de tu ciudad.";
     private String citizenKicked = "{prefix} &cCiudadano expulsado con éxito.";
     private String citizenAbandon = "{prefix} &cHas abandonado&a {city}";
@@ -174,6 +175,10 @@ public class MessageSerializable {
 
     public String getAlreadyHasCity() {
         return colorAndPrefix(alreadyHasCity);
+    }
+
+    public String getCitizenAlreadyHasCity() {
+        return colorAndPrefix(citizenAlreadyHasCity);
     }
 
     public String getCitizenNoFromYourCity() {

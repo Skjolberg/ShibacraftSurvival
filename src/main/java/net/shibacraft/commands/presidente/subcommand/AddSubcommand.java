@@ -43,10 +43,11 @@ public class AddSubcommand implements CommandClass {
         if (StringUtil.STRIP_AMPERSAND_FORMATS.matcher(city).find()) {
             String noFormats = messageSerializable.getInvalidCityName();
             sender.sendMessage(noFormats);
+            return;
         }
 
         // Name length
-        if (cityNoColor.length() > 15) {
+        if (cityNoColor.length() < 3 || cityNoColor.length() > 15) {
             String invalidLength = messageSerializable.getInvalidCityLength();
             sender.sendMessage(invalidLength);
             return;
@@ -58,11 +59,19 @@ public class AddSubcommand implements CommandClass {
             if (cityObject.getName().equalsIgnoreCase(cityNoColor)) {
                 String cityExists = messageSerializable.getCityAlreadyAdded();
                 sender.sendMessage(cityExists);
+                return;
             }
         }
+        // Is president
+        UUID presidentUUID = sender.getUniqueId();
+        if (citySerializable.isPresident(presidentUUID)) {
+            String alreadyCity = messageSerializable.getAlreadyHasCity();
+            sender.sendMessage(alreadyCity);
+            return;
+        }
+
 
         // Add city & president
-        UUID presidentUUID = sender.getUniqueId();
         int places = configurationLoader.getConfigurationSerializable().getCitizens();
         citySerializable.addPresident(presidentUUID, cityNoColor, city, places);
         // Add suffix
@@ -92,7 +101,7 @@ public class AddSubcommand implements CommandClass {
         // check if it has a city
         UUID invited = citizen.getUniqueId();
         if(cityLoader.getCitySerializable().isCitizen(invited)) {
-            president.sendMessage(msg.getAlreadyHasCity());
+            president.sendMessage(msg.getCitizenAlreadyHasCity());
             return;
         }
 

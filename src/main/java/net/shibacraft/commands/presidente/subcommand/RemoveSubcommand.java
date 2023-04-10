@@ -34,9 +34,11 @@ public class RemoveSubcommand implements CommandClass {
     public void onCityCommand(@Sender Player sender) {
         UUID presidentUUID = sender.getUniqueId();
         CitySerializable citySerializable = cityLoader.getCitySerializable();
+        MessageSerializable messageSerializable = messageLoader.getMessageSerializable();
         // Return if it not president
         if (!citySerializable.isPresident(presidentUUID)) {
-            messageLoader.getMessageSerializable().getCreateCityFirst();
+            String noCity = messageSerializable.getCreateCityFirst();
+            sender.sendMessage(noCity);
             return;
         }
 
@@ -49,7 +51,7 @@ public class RemoveSubcommand implements CommandClass {
         LuckPermsHook.removeSuffix(userInvitedLP, cityObject.getDisplayName());
         // City & president remove
         citySerializable.removePresident(sender.getUniqueId());
-        String allRemoved = messageLoader.getMessageSerializable().getCitySuccessfullyEliminated();
+        String allRemoved = messageSerializable.getCitySuccessfullyEliminated();
         sender.sendMessage(allRemoved);
     }
 
