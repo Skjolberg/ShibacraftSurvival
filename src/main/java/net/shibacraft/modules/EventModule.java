@@ -1,11 +1,15 @@
 package net.shibacraft.modules;
 
+import lombok.extern.java.Log;
 import net.shibacraft.ShibacraftSurvival;
 import net.shibacraft.library.loader.SLLoader;
 import net.shibacraft.listener.PlayerChatListener;
+import net.shibacraft.placeholder.CityExpansion;
+import org.bukkit.Bukkit;
 
 import static org.bukkit.Bukkit.getServer;
 
+@Log
 public class EventModule implements SLLoader {
 
     private final ShibacraftSurvival plugin;
@@ -19,6 +23,17 @@ public class EventModule implements SLLoader {
     @Override
     public void load() {
         getServer().getPluginManager().registerEvents(new PlayerChatListener(fileModule), plugin);
+
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            CityExpansion channelPlaceHolderAPI = new CityExpansion(fileModule);
+            channelPlaceHolderAPI.register();
+            channelPlaceHolderAPI.persist();
+
+            log.info("PlaceholderAPI has been registered.");
+        } else {
+            log.warning("PlaceholderAPI was not found.");
+        }
+
     }
 
     @Override

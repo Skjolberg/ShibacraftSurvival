@@ -14,6 +14,7 @@ permissions:
     children:
       shibacraft.presidente: true
       shibacraft.ciudadano: true
+      shibacraft.use: true
   shibacraft.presidente:
     description: President
     default: false

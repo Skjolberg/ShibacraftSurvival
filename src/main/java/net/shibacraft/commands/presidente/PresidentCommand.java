@@ -19,7 +19,7 @@ import org.bukkit.entity.Player;
 import java.util.List;
 import java.util.UUID;
 
-@Command(names = {"presidente"}, desc = "Presidente command")
+@Command(names = {"presidente"}, permission = "shibacraft.presidente", desc = "Presidente command")
 @SubCommandClasses({
         RemoveSubcommand.class,
         AddSubcommand.class

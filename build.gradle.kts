@@ -12,12 +12,14 @@ repositories {
     maven("https://repo.unnamed.team/repository/unnamed-public/")
     maven("https://repo.alessiodp.com/releases/")
     maven("https://jitpack.io/")
+    maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
 }
 
 dependencies {
     compileOnly(libs.spigot)
     implementation(libs.commandFlow)
     compileOnly(libs.libby)
+    compileOnly(libs.papi)
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
     implementation(libs.shibacraft)
