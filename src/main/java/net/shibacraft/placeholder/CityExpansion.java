@@ -48,6 +48,7 @@ public class CityExpansion extends PlaceholderExpansion {
         if (str.equalsIgnoreCase("citizens")) {
             CitySerializable citySerializable = cityLoader.getCitySerializable();
             CitySerializable.City city = citySerializable.getCityOfCitizen(player.getUniqueId());
+            if (city == null) return "";
 
             List<UUID> playersUUID = city.getCitizens();
             StringBuilder stringBuilder = new StringBuilder();
@@ -56,13 +57,12 @@ public class CityExpansion extends PlaceholderExpansion {
             int it = 0;
             for (UUID uuid : playersUUID) {
                 it++;
-                stringBuilder.append("\n").append( " - ").append(Bukkit.getOfflinePlayer(uuid).getName()).append(" ");
-                if(playersUUID.size() == it) stringBuilder.append("\n");
+                stringBuilder.append("\n").append(" - ").append(Bukkit.getOfflinePlayer(uuid).getName()).append(" ");
+                if (playersUUID.size() == it) stringBuilder.append("\n");
             }
             return SLTextColor.color(stringBuilder.toString());
         }
-        return "no valid expansion";
-
+        return "";
     }
 
 }

@@ -25,9 +25,9 @@ public class EventModule implements SLLoader {
         getServer().getPluginManager().registerEvents(new PlayerChatListener(fileModule), plugin);
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            CityExpansion channelPlaceHolderAPI = new CityExpansion(fileModule);
-            channelPlaceHolderAPI.register();
-            channelPlaceHolderAPI.persist();
+            CityExpansion cityExpansion = new CityExpansion(fileModule);
+            cityExpansion.register();
+            cityExpansion.persist();
 
             log.info("PlaceholderAPI has been registered.");
         } else {
